@@ -1,0 +1,45 @@
+John Moon
+CS146 - September 5, 2015
+Project 1 Write-Up
+=========================
+
+1) The most helpful thing for me on this project was Stack Overflow as usual...
+   I am pretty new to Java, so a lot of simple syntax thing needed to be
+   looked up and referenced. It's very strange to me that all the garbage
+   collection is handled by Java.
+
+2) I tested my implementations by actively reversing the Java files and also
+   by looking at the raw data files' heads and tails to see if they
+   were reversed properly.
+
+3) I didn't use any of the standard libraries (I think because I wasn't aware
+   of them. :)
+
+4) The number of times the resizing occurs follows a logarithmic scale.
+   So, for a million lines, we see something like 2^n = 1,000,000. Solving for
+   n, we see that n = log_2(1,000,000) = about 20 times.
+
+   For a billion lines, it'd double about 30 times.
+
+   For a trillion lines, it'd double about 40 times.
+
+5) Well, we could read the file in from the bottom instead of the top. So, 
+   it would be relatively simple to fill a queue with all those time values
+   from the bottom, then pop them out of the queue FIFO (making ir reversed.
+
+6) 
+	void push(double data)
+	{
+		enqueue(data);
+		top++;
+	}
+	
+	void pop(double data)
+	{
+		dequeue(data);
+		top--;
+	}	
+
+7) I'd have to calculate how many elements are in the file and then allocate
+   the memory, and then fill the nodes with the data. With the  stack, we'd
+   be able to fill as we go. 

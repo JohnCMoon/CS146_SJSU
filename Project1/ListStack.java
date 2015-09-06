@@ -1,3 +1,12 @@
+/*
+ * File: ListStack.java
+ *
+ * Author: John Moon <johncarlmoon@gmail.com>
+ * 
+ * Purpose: Implements a stack class for double ints using a linked list.
+ *
+ */
+
 import java.util.EmptyStackException;
 
 public class ListStack implements DStack {
