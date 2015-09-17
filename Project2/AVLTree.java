@@ -1,4 +1,4 @@
-public class AVLTree extends BSTree
+public class AVLTree extends BinarySearchTree
 {
 	protected BinaryNode insert(int data, BinaryNode node)
 	{
@@ -54,7 +54,7 @@ public class AVLTree extends BSTree
 
 	private BinaryNode doubleLeftRightRotation(BinaryNode k3)
 	{
-		k3.serLeft(singleLeftRotation(k3.getLeft()));
+		k3.setLeft(singleLeftRotation(k3.getLeft()));
 		return singleRightRotation(k3);
 	}
 

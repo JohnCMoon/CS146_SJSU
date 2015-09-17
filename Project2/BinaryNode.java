@@ -1,25 +1,53 @@
-public class BinaryNode
-{
-	private int data;
-	private int height;
-	private BinaryNode left;
-	private BinaryNode right;
+/**
+ * Ankit Gandhi
+ * CS 146B
+ */
 
-	public BinaryNode getLeft() {
+public final class BinaryNode<T>
+{
+	private T data;
+	private BinaryNode<T> left;
+	private BinaryNode<T> right;
+	
+	public BinaryNode(T theData, BinaryNode<T> leftNode, BinaryNode<T> rightNode) 
+	{
+		data = theData;
+		left = leftNode;
+		right = rightNode;
+	}
+	
+	public BinaryNode(T data)
+	{
+		this(data, null, null);
+	}
+
+	public T getData() 
+	{
+		return data;
+	}
+
+	public void setData(T theData) 
+	{
+		data = theData;
+	}
+
+	public BinaryNode<T> getLeft() 
+	{
 		return left;
 	}
 
-	public BinaryNode getRight() {
+	public void setLeft(BinaryNode<T> leftNode) 
+	{
+		left = leftNode;
+	}
+
+	public BinaryNode<T> getRight() 
+	{
 		return right;
 	}
-	
-	public void setLeft(BinaryNode node) {
-		left = node;
-	}	
 
-	public void setRight(BinaryNode node) {
-		right = node;
+	public void setRight(BinaryNode<T> rightNode)
+	{
+		right = rightNode;
 	}
-
-
 }
