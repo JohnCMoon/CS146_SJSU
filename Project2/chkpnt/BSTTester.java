@@ -1,10 +1,10 @@
 import java.util.Random;
 
-public class BSTTester
+public class BinarySearchTreeTester
 {
     public static void main(String[] args)
     {
-        BinarySearchTree<Integer> bst = new BinarySearchTree<>();
+        BinarySearchTree<Integer> BST = new BinarySearchTree<>();
 
         int min = 10;
         int max = 99;

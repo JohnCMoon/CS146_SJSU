@@ -35,29 +35,29 @@ public class BinarySearchTree<T extends Comparable<T>>
 		return root == null;
 	}
 
-	// find an item in a subtree
-	public boolean contains(T value)
+	/* Returns node if value is found in the tree, null if not */
+	public BinaryNode<T> contains(T value)
 	{
 		return contains(value, root);
 	}
-	private boolean contains(T value, BinaryNode<T> root)
+	private BinaryNode<T> contains(T value, BinaryNode<T> root)
 	{
 		if (root == null) {
-			return false;
+			return null;
 		}
 
 		int compareResult = value.compareTo(root.getData());
 
 		if (compareResult < 0) {
-			return contains(value, root.getLeft());
+			return contains(value, root.getLeft()); // Value is less than, look in left subtree
 		} else if (compareResult > 0) {
-			return contains(value, root.getRight());
+			return contains(value, root.getRight()); // Value is greater than, look in right subtree
 		} else {
-			return true; // Match
+			return root; // Found a match, return that node
 		}
 	}
 
-	// insert an value to the tree
+	/* Inserts the value into the tree, maintaining BST conditions */
 	public void insert(T value)
 	{
 		System.out.println("Inserting " + value);
@@ -76,68 +76,69 @@ public class BinarySearchTree<T extends Comparable<T>>
 		} else if (compareResult > 0) {
 			root.setRight(insert(value, root.getRight()));
 		} else {
-			; // Duplicate; do nothing
+			; // Duplicate - do nothing
 		}
 
 		return root;
 	}
 
-	// Find the smallest value in the tree
+	/* Returns the smallest value in the tree */
 	public T findMin()
 	{
+		return findMin(root);
+	}	
+	private T findMin(BinaryNode<T> root)
+	{
 		if (isEmpty()) {
 			return null;
-		}
-		return findMin(root).getData();
-	}
-	private BinaryNode<T> findMin(BinaryNode<T> root)
-	{
-		if (root == null) {
-			return null;
-		} else if (root.getLeft() == null) {
-			return root;
 		} else {
-			return findMin(root.getLeft());
+			BinaryNode<T> traverse = root;
+			while (true) {
+				if (traverse.getLeft() == null)
+					break;
+				else
+					traverse = traverse.getLeft();
+			}
+			return traverse.getData();
 		}
 	}
 
-	// Find the largest value in the tree
+	/* Returns the largest value in the tree */
 	public T findMax()
 	{
+		return findMax(root);
+	}
+	private T findMax(BinaryNode<T> root)
+	{
 		if (isEmpty()) {
 			return null;
-		}
-		return findMax(root).getData();
-	}
-	private BinaryNode<T> findMax(BinaryNode<T> root)
-	{
-		if (root == null) {
-			while (root.getRight() != null) {
-				root = root.getRight();
+		} else {
+			BinaryNode<T> traverse = root;
+			while (true) {
+				if (traverse.getRight() == null)
+					break;
+				else
+					traverse = traverse.getRight();
 			}
+			return traverse.getData();
 		}
-		return root;
 	}
 
-	// Determines the height of the tree
+	/* Returns the height of the tree */
 	public int height()
 	{
 		return (height(root));
 	}
 	protected int height(BinaryNode<T> root)
 	{
-		if (root == null) {
+		if (root == null)
 			return -1;
-		}
 		
-		int left = height(root.getLeft());
-		int right = height(root.getRight());
-		int total = Math.max(left, right) + 1;
-
-		return total;
+		return Math.max(height(root.getLeft()),
+						height(root.getRight())) + 1;
 	}
 
-	// recursive method that removes a value from the tree
+	/* Removes given value from the tree */
 	public void remove(T value)
 	{
 		root = remove(value, root);
@@ -145,7 +146,7 @@ public class BinarySearchTree<T extends Comparable<T>>
 	protected BinaryNode<T> remove(T value, BinaryNode<T> root)
 	{
 		if (root == null) {
-			return root;
+			return null;
 		}
 
 		int compareResult = value.compareTo(root.getData());
@@ -155,7 +156,7 @@ public class BinarySearchTree<T extends Comparable<T>>
 		} else if (compareResult > 0) {
 			root.setRight(remove(value, root.getRight()));
 		} else if (root.getLeft() != null && root.getRight() != null) {
-			root.setData(findMin(root.getRight()).getData());
+			root.setData(findMin(root.getRight()));
 			root.setRight(remove(root.getData(), root.getRight()));
 		} else {
 			root = root.getLeft() != null ? root.getLeft() : root.getRight();
