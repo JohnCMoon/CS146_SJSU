@@ -3,7 +3,7 @@
  *	File: BinarySearchTree.java
  *
  *	Authors: Ankit Gandhi <csgandhiankit@gmail.com>
- *			 John Moon <johncarlmoon@gmail.com>
+ *	         John Moon <johncarlmoon@gmail.com>
  *
  *	Purpose: Implements the binary search tree class.
  *
@@ -60,7 +60,6 @@ public class BinarySearchTree<T extends Comparable<T>>
 	/* Inserts the value into the tree, maintaining BST conditions */
 	public void insert(T value)
 	{
-		System.out.println("Inserting " + value);
 		root = insert(value, root);
 	}
 	protected BinaryNode<T> insert(T value, BinaryNode<T> root)

@@ -3,7 +3,7 @@
  *	File: BinaryNode.java
  *
  *	Authors: Ankit Gandhi <csgandhiankit@gmail.com>
- *			 John Moon <johncarlmoon@gmail.com>
+ *	         John Moon <johncarlmoon@gmail.com>
  *
  *	Purpose: Implements the binary node class for use in BST and AVL trees.
  *
