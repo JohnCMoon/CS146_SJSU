@@ -43,7 +43,7 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
 		System.out.println("Single Left Rotation Applied");
 		BinaryNode<T> k2 = k1.getRight();
 		k1.setRight(k2.getLeft());
-		k2.setRight(k1);
+		k2.setLeft(k1);
 		k1.setHeight(Math.max(super.height(k1.getLeft()), super.height(k1.getRight())) + 1);
 		k2.setHeight(Math.max(super.height(k2.getRight()), k1.getHeight()) + 1);
 
