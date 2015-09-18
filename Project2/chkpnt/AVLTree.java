@@ -47,6 +47,7 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T>
 
 	private BinaryNode<T> singleRightRotation(BinaryNode<T> k2) 
 	{
+		System.out.println("Single right rotation: " + k2.getData());
 		BinaryNode<T> k1 = k2.getLeft();
 		k2.setLeft(k1.getRight());
 		k1.setRight(k2);
@@ -58,6 +59,7 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T>
 
 	private BinaryNode<T> singleLeftRotation(BinaryNode<T> k1) 
 	{
+		System.out.println("Single left rotation: " + k1.getData());
 		BinaryNode<T> k2 = k1.getRight();
 		k1.setRight(k2.getLeft());
 		k2.setLeft(k1);
@@ -69,12 +71,14 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T>
 
 	private BinaryNode<T> doubleLeftRightRotation(BinaryNode<T> k3) 
 	{
+		System.out.println("Double left-right rotation: " + k3.getData());
 		k3.setLeft(singleLeftRotation(k3.getLeft()));
 		return singleRightRotation(k3);
 	}
 
 	private BinaryNode<T> doubleRightLeftRotation(BinaryNode<T> k1) 
 	{
+		System.out.println("Double right-left rotation: " + k1.getData());
 		k1.setRight(singleRightRotation(k1.getRight()));
 		return singleLeftRotation(k1);
 	}

@@ -1,6 +1,6 @@
 /*
  *
- *	File: TreeTimer.java
+ *	File: InsRemTimer.java
  *
  *	Authors: Ankit Gandhi <csgandhiankit@gmail.com>
  *	         John Moon <johncarlmoon@gmail.com>
@@ -11,7 +11,7 @@
 
 import java.util.Random;
 
-public class TreeTimer
+public class InsRemTimer
 {
     public static void main(String[] args)
     {
