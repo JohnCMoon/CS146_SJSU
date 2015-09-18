@@ -1,145 +1,167 @@
-/**
- * Ankit Gandhi 
- * CS 146B
+/*
+ *
+ *	File: BinarySearchTree.java
+ *
+ *	Authors: Ankit Gandhi <csgandhiankit@gmail.com>
+ *			 John Moon <johncarlmoon@gmail.com>
+ *
+ *	Purpose: Implements the binary search tree class.
+ *
  */
 
-public class BinarySearchTree<T extends Comparable<T>> {
-	private BinaryNode<T> node;
+public class BinarySearchTree<T extends Comparable<T>>
+{
+	
+	private BinaryNode<T> root;
 
-	// Construct the tree
-	public BinarySearchTree() {
-		node = null;
+	/* Contructor */
+	public BinarySearchTree()
+	{
+		root = null;
 	}
 
-	// The tree root
-	public BinaryNode<T> getRoot() {
-		return node;
+	public BinaryNode<T> getRoot()
+	{
+		return root;
 	}
 
-	// Make the tree logically empty
-	public void makeEmpty() {
-		node = null;
+	public void makeEmpty()
+	{
+		root = null;
 	}
 
-	// Test if the tree is logically empty
-	public boolean isEmpty() {
-		return node == null;
+	public boolean isEmpty()
+	{
+		return root == null;
 	}
 
 	// find an item in a subtree
-	public boolean contains(T value) {
-		return contains(value, node);
+	public boolean contains(T value)
+	{
+		return contains(value, root);
 	}
-	private boolean contains(T value, BinaryNode<T> node) {
-		if (node == null) {
+	private boolean contains(T value, BinaryNode<T> root)
+	{
+		if (root == null) {
 			return false;
 		}
 
-		int compareResult = value.compareTo(node.getData());
+		int compareResult = value.compareTo(root.getData());
 
 		if (compareResult < 0) {
-			return contains(value, node.getLeft());
+			return contains(value, root.getLeft());
 		} else if (compareResult > 0) {
-			return contains(value, node.getRight());
+			return contains(value, root.getRight());
 		} else {
 			return true; // Match
 		}
 	}
 
 	// insert an value to the tree
-	public void insert(T value) {
+	public void insert(T value)
+	{
 		System.out.println("Inserting " + value);
-		node = insert(value, node);
+		root = insert(value, root);
 	}
-	protected BinaryNode<T> insert(T value, BinaryNode<T> node) {
-		if (node == null) {
+	protected BinaryNode<T> insert(T value, BinaryNode<T> root)
+	{
+		if (root == null) {
 			return new BinaryNode<T>(value, null, null, 0);
 		}
 
-		int compareResult = value.compareTo(node.getData());
+		int compareResult = value.compareTo(root.getData());
 
 		if (compareResult < 0) {
-			node.setLeft(insert(value, node.getLeft()));
+			root.setLeft(insert(value, root.getLeft()));
 		} else if (compareResult > 0) {
-			node.setRight(insert(value, node.getRight()));
+			root.setRight(insert(value, root.getRight()));
 		} else {
 			; // Duplicate; do nothing
 		}
 
-		return node;
+		return root;
 	}
 
 	// Find the smallest value in the tree
-	public T findMin() {
+	public T findMin()
+	{
 		if (isEmpty()) {
 			return null;
 		}
-		return findMin(node).getData();
+		return findMin(root).getData();
 	}
-	private BinaryNode<T> findMin(BinaryNode<T> node) {
-		if (node == null) {
+	private BinaryNode<T> findMin(BinaryNode<T> root)
+	{
+		if (root == null) {
 			return null;
-		} else if (node.getLeft() == null) {
-			return node;
+		} else if (root.getLeft() == null) {
+			return root;
 		} else {
-			return findMin(node.getLeft());
+			return findMin(root.getLeft());
 		}
 	}
 
 	// Find the largest value in the tree
-	public T findMax() {
+	public T findMax()
+	{
 		if (isEmpty()) {
 			return null;
 		}
-		return findMax(node).getData();
+		return findMax(root).getData();
 	}
-	private BinaryNode<T> findMax(BinaryNode<T> node) {
-		if (node == null) {
-			while (node.getRight() != null) {
-				node = node.getRight();
+	private BinaryNode<T> findMax(BinaryNode<T> root)
+	{
+		if (root == null) {
+			while (root.getRight() != null) {
+				root = root.getRight();
 			}
 		}
-		return node;
+		return root;
 	}
 
 	// Determines the height of the tree
-	public int height() {
-		return (height(node));
+	public int height()
+	{
+		return (height(root));
 	}
-	protected int height(BinaryNode<T> node) {
-		if (node == null) {
+	protected int height(BinaryNode<T> root)
+	{
+		if (root == null) {
 			return -1;
 		}
 		
-		int left = height(node.getLeft());
-		int right = height(node.getRight());
+		int left = height(root.getLeft());
+		int right = height(root.getRight());
 		int total = Math.max(left, right) + 1;
 
 		return total;
 	}
 
 	// recursive method that removes a value from the tree
-	public void remove(T value) {
-		node = remove(value, node);
+	public void remove(T value)
+	{
+		root = remove(value, root);
 	}
-	protected BinaryNode<T> remove(T value, BinaryNode<T> node) {
-		if (node == null) {
-			return node;
+	protected BinaryNode<T> remove(T value, BinaryNode<T> root)
+	{
+		if (root == null) {
+			return root;
 		}
 
-		int compareResult = value.compareTo(node.getData());
+		int compareResult = value.compareTo(root.getData());
 
 		if (compareResult < 0) {
-			node.setLeft(remove(value, node.getLeft()));
+			root.setLeft(remove(value, root.getLeft()));
 		} else if (compareResult > 0) {
-			node.setRight(remove(value, node.getRight()));
-		} else if (node.getLeft() != null && node.getRight() != null) {
-			node.setData(findMin(node.getRight()).getData());
-			node.setRight(remove(node.getData(), node.getRight()));
+			root.setRight(remove(value, root.getRight()));
+		} else if (root.getLeft() != null && root.getRight() != null) {
+			root.setData(findMin(root.getRight()).getData());
+			root.setRight(remove(root.getData(), root.getRight()));
 		} else {
-			node = node.getLeft() != null ? node.getLeft() : node.getRight();
+			root = root.getLeft() != null ? root.getLeft() : root.getRight();
 		}
 
-		return node;
+		return root;
 	}
 }
+

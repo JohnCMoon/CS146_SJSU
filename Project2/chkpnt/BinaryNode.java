@@ -1,6 +1,12 @@
-/**
- * Ankit Gandhi
- * CS 146B
+/*
+ *
+ *	File: BinaryNode.java
+ *
+ *	Authors: Ankit Gandhi <csgandhiankit@gmail.com>
+ *			 John Moon <johncarlmoon@gmail.com>
+ *
+ *	Purpose: Implements the binary node class for use in BST and AVL trees.
+ *
  */
 
 public final class BinaryNode<T>
@@ -9,13 +15,14 @@ public final class BinaryNode<T>
 	private BinaryNode<T> left;
 	private BinaryNode<T> right;
 	private int height = 0;
-	
-	public BinaryNode(T theData, BinaryNode<T> leftNode, BinaryNode<T> rightNode, int theHeight) 
+
+	/* Constructors */	
+	public BinaryNode(T newData, BinaryNode<T> leftNode, BinaryNode<T> rightNode, int newHeight) 
 	{
-		data = theData;
+		data = newData;
 		left = leftNode;
 		right = rightNode;
-		height = theHeight;
+		height = newHeight;
 	}
 	
 	public BinaryNode(T data)
@@ -23,6 +30,7 @@ public final class BinaryNode<T>
         this(data, null, null, 0);
     }
 
+	/* Getters and setters */
 	public T getData() 
 	{
 		return data;
