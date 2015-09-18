@@ -25,9 +25,8 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T>
 	/* Balances the tree based on the four possible off-balance cases */
 	private BinaryNode<T> balance(BinaryNode<T> node) 
 	{
-		if (node == null) {
+		if (node == null)
 			return node;
-		}
 
 		if (super.height(node.getLeft()) - super.height(node.getRight()) > 1) {
 			if (super.height(node.getLeft().getLeft()) >= super.height(node.getLeft().getRight())) {
