@@ -1,0 +1,174 @@
+john@lunar-arch ~/.CS146/Project2/chkpnt (git)-[master] % java MixTimer 1000 1000 | grep -v rotation
+Beginning BST test with 1000 integers...
+Insertion took 4 ms
+Found 0 values in BST
+Did not find 1000 values in BST
+Search took 2 ms
+Beginning AVL test with 1000 integers...
+Insertion took 52 ms
+Found 0 values in AVL tree
+Did not find 1000 values in AVL tree
+Search took 0 ms
+john@lunar-arch ~/.CS146/Project2/chkpnt (git)-[master] % java MixTimer 10000 10000 | grep -v rotation 
+Beginning BST test with 10000 integers...
+Insertion took 13 ms
+Found 0 values in BST
+Did not find 10000 values in BST
+Search took 7 ms
+Beginning AVL test with 10000 integers...
+Insertion took 1852 ms
+Found 0 values in AVL tree
+Did not find 10000 values in AVL tree
+Search took 3 ms
+john@lunar-arch ~/.CS146/Project2/chkpnt (git)-[master] % java MixTimer 20000 20000 | grep -v rotation 
+Beginning BST test with 20000 integers...
+Insertion took 16 ms
+Found 0 values in BST
+Did not find 20000 values in BST
+Search took 12 ms
+Beginning AVL test with 20000 integers...
+Insertion took 7612 ms
+Found 0 values in AVL tree
+Did not find 20000 values in AVL tree
+Search took 5 ms
+java MixTimer 20000 20000  8.07s user 0.09s system 105% cpu 7.749 total
+grep --color=auto -v rotation  0.03s user 0.15s system 2% cpu 7.748 total
+john@lunar-arch ~/.CS146/Project2/chkpnt (git)-[master] % java MixTimer 40000 40000 | grep -v rotation 
+Beginning BST test with 40000 integers...
+Insertion took 24 ms
+Found 0 values in BST
+Did not find 40000 values in BST
+Search took 20 ms
+Beginning AVL test with 40000 integers...
+Insertion took 34663 ms
+Found 1 values in AVL tree
+Did not find 39999 values in AVL tree
+Search took 17 ms
+java MixTimer 40000 40000  35.09s user 0.14s system 101% cpu 34.833 total
+grep --color=auto -v rotation  0.13s user 0.16s system 0% cpu 34.832 total
+john@lunar-arch ~/.CS146/Project2/chkpnt (git)-[master] % java MixTimer 60000 60000 | grep -v rotation 
+Beginning BST test with 60000 integers...
+Insertion took 33 ms
+Found 0 values in BST
+Did not find 60000 values in BST
+Search took 31 ms
+Beginning AVL test with 60000 integers...
+Insertion took 74965 ms
+Found 1 values in AVL tree
+Did not find 59999 values in AVL tree
+Search took 23 ms
+java MixTimer 60000 60000  75.47s user 0.21s system 100% cpu 1:15.17 total
+grep --color=auto -v rotation  0.18s user 0.33s system 0% cpu 1:15.16 total
+john@lunar-arch ~/.CS146/Project2/chkpnt (git)-[master] % java MixTimer 80000 80000 | grep -v rotation 
+Beginning BST test with 80000 integers...
+Insertion took 45 ms
+Found 4 values in BST
+Did not find 79996 values in BST
+Search took 42 ms
+Beginning AVL test with 80000 integers...
+Insertion took 158712 ms
+Found 1 values in AVL tree
+Did not find 79999 values in AVL tree
+Search took 36 ms
+java MixTimer 80000 80000  159.12s user 0.30s system 100% cpu 2:38.94 total
+grep --color=auto -v rotation  0.27s user 0.39s system 0% cpu 2:38.94 total
+john@lunar-arch ~/.CS146/Project2/chkpnt (git)-[master] % java MixTimer 100000 100000 | grep -v rotation 
+Beginning BST test with 100000 integers...
+Insertion took 58 ms
+Found 7 values in BST
+Did not find 99993 values in BST
+Search took 59 ms
+Beginning AVL test with 100000 integers...
+Insertion took 287801 ms
+Found 9 values in AVL tree
+Did not find 99991 values in AVL tree
+Search took 42 ms
+java MixTimer 100000 100000  288.14s user 0.46s system 100% cpu 4:48.08 total
+grep --color=auto -v rotation  0.33s user 0.58s system 0% cpu 4:48.08 total
+john@lunar-arch ~/.CS146/Project2/chkpnt (git)-[master] % java MixTimer 1000 100000 | grep -v rotation 
+Beginning BST test with 1000 integers...
+Insertion took 4 ms
+Found 0 values in BST
+Did not find 100000 values in BST
+Search took 24 ms
+Beginning AVL test with 1000 integers...
+Insertion took 46 ms
+Found 0 values in AVL tree
+Did not find 100000 values in AVL tree
+Search took 27 ms
+john@lunar-arch ~/.CS146/Project2/chkpnt (git)-[master] % java MixTimer 10000 80000 | grep -v rotation 
+Beginning BST test with 10000 integers...
+Insertion took 10 ms
+Found 1 values in BST
+Did not find 79999 values in BST
+Search took 32 ms
+Beginning AVL test with 10000 integers...
+Insertion took 1749 ms
+Found 0 values in AVL tree
+Did not find 80000 values in AVL tree
+Search took 20 ms
+john@lunar-arch ~/.CS146/Project2/chkpnt (git)-[master] % java MixTimer 20000 60000 | grep -v rotation 
+Beginning BST test with 20000 integers...
+Insertion took 18 ms
+Found 0 values in BST
+Did not find 60000 values in BST
+Search took 27 ms
+Beginning AVL test with 20000 integers...
+Insertion took 7984 ms
+Found 0 values in AVL tree
+Did not find 60000 values in AVL tree
+Search took 19 ms
+java MixTimer 20000 60000  9.05s user 0.10s system 111% cpu 8.172 total
+grep --color=auto -v rotation  0.15s user 0.08s system 2% cpu 8.172 total
+john@lunar-arch ~/.CS146/Project2/chkpnt (git)-[master] % java MixTimer 40000 40000 | grep -v rotation 
+Beginning BST test with 40000 integers...
+Insertion took 23 ms
+Found 1 values in BST
+Did not find 39999 values in BST
+Search took 23 ms
+Beginning AVL test with 40000 integers...
+Insertion took 35602 ms
+Found 3 values in AVL tree
+Did not find 39997 values in AVL tree
+Search took 15 ms
+java MixTimer 40000 40000  36.08s user 0.13s system 101% cpu 35.777 total
+grep --color=auto -v rotation  0.09s user 0.18s system 0% cpu 35.777 total
+john@lunar-arch ~/.CS146/Project2/chkpnt (git)-[master] % java MixTimer 60000 20000 | grep -v rotation 
+Beginning BST test with 60000 integers...
+Insertion took 43 ms
+Found 0 values in BST
+Did not find 20000 values in BST
+Search took 14 ms
+Beginning AVL test with 60000 integers...
+Insertion took 77045 ms
+Found 1 values in AVL tree
+Did not find 19999 values in AVL tree
+Search took 9 ms
+java MixTimer 60000 20000  77.70s user 0.22s system 100% cpu 1:17.24 total
+grep --color=auto -v rotation  0.16s user 0.28s system 0% cpu 1:17.24 total
+john@lunar-arch ~/.CS146/Project2/chkpnt (git)-[master] % java MixTimer 80000 10000 | grep -v rotation 
+Beginning BST test with 80000 integers...
+Insertion took 51 ms
+Found 0 values in BST
+Did not find 10000 values in BST
+Search took 7 ms
+Beginning AVL test with 80000 integers...
+Insertion took 152110 ms
+Found 0 values in AVL tree
+Did not find 10000 values in AVL tree
+Search took 3 ms
+java MixTimer 80000 10000  152.45s user 0.31s system 100% cpu 2:32.27 total
+grep --color=auto -v rotation  0.32s user 0.37s system 0% cpu 2:32.27 total
+john@lunar-arch ~/.CS146/Project2/chkpnt (git)-[master] % java MixTimer 100000 1000 | grep -v rotation 
+Beginning BST test with 100000 integers...
+Insertion took 56 ms
+Found 0 values in BST
+Did not find 1000 values in BST
+Search took 2 ms
+Beginning AVL test with 100000 integers...
+Insertion took 276504 ms
+Found 0 values in AVL tree
+Did not find 1000 values in AVL tree
+Search took 0 ms
+java MixTimer 100000 1000  276.71s user 0.43s system 100% cpu 4:36.67 total
+grep --color=auto -v rotation  0.38s user 0.44s system 0% cpu 4:36.67 total
