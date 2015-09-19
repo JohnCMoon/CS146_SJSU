@@ -11,7 +11,7 @@
  */
 public class TreePrinter 
 {
-    private static final int MAX_LEVELS = 6;
+    private static final int MAX_LEVELS = 10;
     
     private BinarySearchTree<Integer> tree;  // the tree
     private int height;                      // its height
