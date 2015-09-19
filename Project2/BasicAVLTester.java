@@ -5,7 +5,7 @@
  *	Authors: Ankit Gandhi <csgandhiankit@gmail.com>
  *	         John Moon <johncarlmoon@gmail.com>
  *
- *	Purpose: Generates a random BST, then deletes all nodes. Prints tree
+ *	Purpose: Generates a random AVL tree, then deletes all nodes. Prints tree
  *	         after every insertion and deletion.
  *
  */
@@ -16,7 +16,7 @@ public class BasicAVLTester
 {
     public static void main(String[] args)
     {
-        BinarySearchTree<Integer> avl = new BinarySearchTree<>();
+        AVLTree<Integer> avl = new AVLTree<>();
 
 		/* Min and max per assignment parameters */
         int min = 10;
