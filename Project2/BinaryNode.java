@@ -1,7 +1,12 @@
-<<<<<<< HEAD
-/**
- * Ankit Gandhi
- * CS 146B
+/*
+ *
+ *	File: BinaryNode.java
+ *
+ *	Authors: Ankit Gandhi <csgandhiankit@gmail.com>
+ *	         John Moon <johncarlmoon@gmail.com>
+ *
+ *	Purpose: Implements the binary node class for use in BST and AVL trees.
+ *
  */
 
 public final class BinaryNode<T>
@@ -9,19 +14,23 @@ public final class BinaryNode<T>
 	private T data;
 	private BinaryNode<T> left;
 	private BinaryNode<T> right;
-	
-	public BinaryNode(T theData, BinaryNode<T> leftNode, BinaryNode<T> rightNode) 
+	private int height = 0;
+
+	/* Constructors */	
+	public BinaryNode(T newData, BinaryNode<T> leftNode, BinaryNode<T> rightNode, int newHeight) 
 	{
-		data = theData;
+		data = newData;
 		left = leftNode;
 		right = rightNode;
+		height = newHeight;
 	}
 	
 	public BinaryNode(T data)
-	{
-		this(data, null, null);
-	}
+    {
+        this(data, null, null, 0);
+    }
 
+	/* Getters and setters */
 	public T getData() 
 	{
 		return data;
@@ -51,61 +60,14 @@ public final class BinaryNode<T>
 	{
 		right = rightNode;
 	}
-}
-=======
-public class BinaryNode
-{
-	private int data;
-	private int height;
-	private BinaryNode left;
-	private BinaryNode right;
 
-	public BinaryNode(int newData, BinaryNode newLeft, BinaryNode newRight)
-	{
-		data = newData;
-		left = newLeft;
-		right = newRight;
-	}	
-	
-	public BinaryNode(int data)
-	{
-		this(data, null, null);
-	}
-
-	public int getData()
-	{
-		return data;
-	}
-
-	public int getHeight()
+	public int getHeight() 
 	{
 		return height;
 	}
 
-	public BinaryNode getLeft() {
-		return left;
-	}
-
-	public BinaryNode getRight() {
-		return right;
-	}
-
-	public void setData(int value)
+	public void setHeight(int theHeight) 
 	{
-		data = value;
-	}
-	
-	public void setHeight(int newHeight)
-	{
-		height = newHeight;
-	}
-	
-	public void setLeft(BinaryNode node) {
-		left = node;
-	}	
-
-	public void setRight(BinaryNode node) {
-		right = node;
+		 height = theHeight;
 	}
 }
->>>>>>> a83d61fc3211ab47bebe01de64438b1878d2e5d1
