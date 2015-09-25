@@ -8,33 +8,52 @@
  */
 public class HashTable implements DataCounter<String>
 {
-	int size;
+	int capacity;
 	ListNode[] table;
 
-	HashTable(int newSize)
+	HashTable(int newCap)
 	{
-		size = newSize;
-		table = new ListNode[size];	
-		for (int i = 0; i < size; i++)
+		capacity = newCap;
+		table = new ListNode[capacity];	
+		for (int i = 0; i < capacity; i++)
 			table[i] = new ListNode<String>();
 	}
 
     /** {@inheritDoc} */
     public DataCount<String>[] getCounts() {
-        // TODO Auto-generated method stub
         return null;
     }
 
     /** {@inheritDoc} */
-    public int getSize() {
-        return size;
+    public int getCap() {
+        return capacity;
     }
 
     /** {@inheritDoc} */
     public void incCount(String data) {
-        // TODO Auto-generated method stub
-
-    }
+		int index = hashCode(data);
+		ListNode traverse = table[index];
+		while (true) {
+			if (traverse != null) {
+				if (traverse.getData() == data) {
+					traverse.incQty();
+					break;
+				} else {
+					if (traverse.getNext() == null) {
+						ListNode newNode = new ListNode(data);
+						traverse.setNext(newNode);
+						break;
+					} else {
+						traverse = traverse.getNext();
+					}
+				}
+			} else {
+				ListNode newNode = new ListNode(data);
+				traverse = newNode;
+				break;
+			}
+		}
+	}
 
 	/* Returns index based on modded sum of string's ascii values */
 	public int hashCode(String data)
@@ -45,6 +64,6 @@ public class HashTable implements DataCounter<String>
 			char ch = data.charAt(i);
 			sum = sum + (int)ch;
 		}
-		return sum % getSize();
+		return sum % getCap();
 	}
 }

@@ -2,30 +2,11 @@
 
 class HashCounter implements DataCounter<String>
 {
+	HashTable table = new HashTable();
+
 	public void incCount(String data)
 	{
-		int index = hashCode(data);
-		Node traverse = HashTable.table[index];
-		while (true) {
-			if (traverse != null) {
-				if (traverse.getData() == data) {
-					traverse.incQty();
-					break;
-				} else {
-					if (traverse.getNext == null) {
-						Node newNode = new Node(data);
-						traverse.setNext(newNode);
-						break;
-					} else {
-						traverse = traverse.getNext();
-					}
-				}
-			} else {
-				Node newNode = new Node(data);
-				traverse = newNode(data);
-				break;
-			}
-		}
+		table.incCount(data);		
 	}	
 
 	public int getSize()
