@@ -6,7 +6,18 @@
  * that HashTable works only with Strings, whereas the DataCounter interface is
  * generic.  You need the String contents to write your hashcode code.
  */
-public class HashTable implements DataCounter<String> {
+public class HashTable implements DataCounter<String>
+{
+	int size;
+	ListNode[] table;
+
+	HashTable(int newSize)
+	{
+		size = newSize;
+		table = new ListNode[size];	
+		for (int i = 0; i < size; i++)
+			table[i] = new ListNode<String>();
+	}
 
     /** {@inheritDoc} */
     public DataCount<String>[] getCounts() {
@@ -16,8 +27,7 @@ public class HashTable implements DataCounter<String> {
 
     /** {@inheritDoc} */
     public int getSize() {
-        // TODO Auto-generated method stub
-        return 0;
+        return size;
     }
 
     /** {@inheritDoc} */
@@ -26,4 +36,15 @@ public class HashTable implements DataCounter<String> {
 
     }
 
+	/* Returns index based on modded sum of string's ascii values */
+	public int hashCode(String data)
+	{
+		int length = data.length();
+		int sum = 0;
+		for (int i = 1; i < length; i++) {
+			char ch = data.charAt(i);
+			sum = sum + (int)ch;
+		}
+		return sum % getSize();
+	}
 }
