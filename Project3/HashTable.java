@@ -6,7 +6,7 @@
  * that HashTable works only with Strings, whereas the DataCounter interface is
  * generic.  You need the String contents to write your hashcode code.
  */
-public class HashTable implements DataCounter<String>
+public class HashTable
 {
 	int capacity;
 	ListNode[] table;
@@ -16,32 +16,29 @@ public class HashTable implements DataCounter<String>
 		capacity = newCap;
 		table = new ListNode[capacity];	
 		for (int i = 0; i < capacity; i++)
-			table[i] = new ListNode<String>();
+			table[i] = new ListNode();
 	}
 
-    /** {@inheritDoc} */
-    public DataCount<String>[] getCounts() {
-        return null;
-    }
-
-    /** {@inheritDoc} */
     public int getCap() {
         return capacity;
     }
 
-    /** {@inheritDoc} */
+    /* Increments the qty of given data. If data does not exist, creates data. */
     public void incCount(String data) {
 		int index = hashCode(data);
+		System.out.println("Index " + index);
 		ListNode traverse = table[index];
 		while (true) {
-			if (traverse != null) {
-				if (traverse.getData() == data) {
+			if (traverse.getData() != null) {
+				if (traverse.getData().data == data) {
+					System.out.println("Node qty incremented...");
 					traverse.incQty();
 					break;
 				} else {
 					if (traverse.getNext() == null) {
 						ListNode newNode = new ListNode(data);
 						traverse.setNext(newNode);
+						System.out.println("New node added 1...");
 						break;
 					} else {
 						traverse = traverse.getNext();
@@ -50,6 +47,7 @@ public class HashTable implements DataCounter<String>
 			} else {
 				ListNode newNode = new ListNode(data);
 				traverse = newNode;
+				System.out.println("New node added 2...");
 				break;
 			}
 		}

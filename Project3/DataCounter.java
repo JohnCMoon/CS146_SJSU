@@ -54,7 +54,7 @@ public interface DataCounter<E> {
      * 
      * @return the number of unique data elements in the structure.
      */
-    public int getCap();
+    public int getSize();
 
     /**
      * Get an array of all of the data counts in the DataCounter structure. The

@@ -7,7 +7,7 @@ import java.io.IOException;
 public class WordCount {
 
     private static void countWords(String file) {
-        DataCounter<String> counter = new BinarySearchTree<String>();
+        HashCounter counter = new HashCounter();
 
         try {
             FileWordReader reader = new FileWordReader(file);
@@ -22,6 +22,7 @@ public class WordCount {
         }
 
         DataCount<String>[] counts = counter.getCounts();
+		System.out.println(counter.getSize() + " words counted. Sorting...");
         sortByDescendingCount(counts);
         for (DataCount<String> c : counts)
             System.out.println(c.count + " \t" + c.data);

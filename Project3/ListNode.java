@@ -1,36 +1,33 @@
-public class ListNode<T>
+public class ListNode
 {
-	private T data;
-	private int qty;
+	private DataCount<String> data;
 	private ListNode next;
 
 	ListNode()
 	{
 		data = null;
-		qty = 0;
 		next = null;
 	}
 
-	ListNode(T newData)
+	ListNode(String newData)
 	{
-		data = newData;
-		qty = 1;
+		data = new DataCount<String>(newData, 1);
 		next = null;
 	}
-
+	
 	public void incQty()
 	{
-		qty = qty + 1;
+		data.count = data.count + 1;
 	}
 
-	public T getData()
+	public DataCount<String> getData()
 	{
 		return data;
 	}
 
 	public int getQty()
 	{
-		return qty;
+		return data.count;
 	}
 
 	public ListNode getNext()
@@ -38,9 +35,9 @@ public class ListNode<T>
 		return next;
 	}
 
-	public void setData(T newData)
+	public void setData(String newData)
 	{
-		data = newData;
+		data.data = newData;
 	}
 
 	public void setNext(ListNode newNext)
